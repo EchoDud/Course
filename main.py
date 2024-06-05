@@ -69,7 +69,7 @@ def bootstrap_estimates(samples, estimate_func, true_value, n_iterations=1000):
 
 
 # Бутстреп оценки для Джини
-estimates_gini, mean_gini, var_gini, std_gini, conf_gini_mean, conf_gini_median = bootstrap_estimates(sample, gini_index, n_bootstrap)
+estimates_gini, bias_gini, var_gini, std_gini, conf_gini_mean, conf_gini_median = bootstrap_estimates(sample, gini_index, sigma, n_bootstrap)
 
 # Бутстреп оценки для Оптимальной Комплексной Оценки
 estimates_opt, bias_opt, var_opt, std_opt, conf_opt_mean, conf_opt_median = bootstrap_estimates(sample, optimal_complex_estimate, sigma, n_bootstrap)
@@ -91,6 +91,3 @@ plt.plot(x, density_opt(x), label='Оптимальная комплексная
 plt.legend()
 plt.title('Плотность вероятности бутстреп-оценок')
 plt.show()
-
-
-# среднее на квадрат смещения
